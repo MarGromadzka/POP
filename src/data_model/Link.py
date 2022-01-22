@@ -23,3 +23,6 @@ class Link:
 
     def __repr__(self):
         return f"{self.link_id} ({self.source} {self.target}"
+
+    def __str__(self):
+        return f"{self.link_id} ({self.source} {self.target}"

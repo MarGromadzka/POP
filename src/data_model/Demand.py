@@ -7,3 +7,9 @@ class Demand:
         self.routing_unit = routing_unit
         self.demand_value = demand_value
         self.max_path_length = max_path_length
+
+    def __repr__(self):
+        return f"{self.demand_id} ({self.source} {self.target})"
+
+    def __str__(self):
+        return f"{self.demand_id} ({self.source} {self.target})"
