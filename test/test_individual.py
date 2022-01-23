@@ -18,10 +18,3 @@ def test_creation():
     assert links_dict['Link_3_6'] == 2
     assert links_dict['Link_3_11'] == 1
     assert links_dict['Link_6_11'] == 2
-
-def test_mutation():
-    work_set = "../data/polska_small/"
-    demands = load_demands(work_set)
-    demand_paths = load_paths(work_set)
-    individual = Individual(demands, demand_paths)
-    demand_element = individual.demand_elements[0]

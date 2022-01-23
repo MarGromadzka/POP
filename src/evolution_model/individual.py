@@ -1,5 +1,6 @@
 import random
 from src.evolution_model.transponders import Transponder100G
+from src.evolution_model.demand_element import DemandElement
 
 
 class Individual:
@@ -26,34 +27,3 @@ class Individual:
                         link_dict[link] = 1
         return link_dict
 
-
-class DemandElement:
-    def __init__(self, demand, paths):
-        self.bitrate_threshold = float(demand.demand_value)
-        self.paths = paths
-        self.path_elements = []
-        self.init_transponders()
-
-    def init_transponders(self):
-        # method for test purposes, cannot be used
-        self.path_elements = []
-        while self.calculate_provided_bitrate() < self.bitrate_threshold:
-            self.path_elements.append(PathElement(self.paths[0], Transponder100G()))
-
-    def calculate_provided_bitrate(self):
-        bitrate = 0
-        for path_element in self.path_elements:
-            bitrate += path_element.transponder.bitrate
-        return bitrate
-
-    def calculate_cost(self):
-        cost = 0
-        for path_element in self.path_elements:
-            cost += path_element.transponder.cost
-        return cost
-
-
-class PathElement:
-    def __init__(self, path, transponder):
-        self.path = path
-        self.transponder = transponder
