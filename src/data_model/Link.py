@@ -1,5 +1,4 @@
 class Link:
-
     def __init__(self,
                  link_id: str,
                  source: str,
@@ -19,7 +18,6 @@ class Link:
         self.setup_cost = setup_cost
         self.module_capacity = module_capacity
         self.module_cost = module_cost
-
 
     def __repr__(self):
         return f"{self.link_id} ({self.source} {self.target}"

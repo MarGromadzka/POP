@@ -1,5 +1,4 @@
 class DemandPaths:
-
     def __init__(self, demand_id):
         self.demand_id = demand_id
         self.paths = []
