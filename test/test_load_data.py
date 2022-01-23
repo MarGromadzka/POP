@@ -47,8 +47,3 @@ def test_load_paths():
     assert demand_paths_pl[4].paths[5].path_id == "P_5"
     assert len(demand_paths_pl[4].paths[5].links) == 8
     assert demand_paths_pl[4].paths[5].links[5] == "Link_3_4"
-
-
-
-
-    #katowice wrocław łódź

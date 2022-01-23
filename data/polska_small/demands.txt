@@ -1,0 +1,3 @@
+Demand_3_6 ( Katowice Lodz ) 1 110.00 UNLIMITED
+Demand_3_11 ( Katowice Wroclaw ) 1 100.00 UNLIMITED
+Demand_6_11 ( Lodz Wroclaw ) 1 151.00 UNLIMITED

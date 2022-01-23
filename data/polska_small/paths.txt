@@ -1,0 +1,12 @@
+  Demand_3_6 (
+    P_0 ( Link_3_6 )
+    P_2 ( Link_3_11 Link_6_11 )
+  )
+  Demand_3_11 (
+    P_0 ( Link_3_11 )
+    P_1 ( Link_3_6 Link_6_11 )
+  )
+  Demand_6_11 (
+    P_0 ( Link_6_11 )
+    P_1 ( Link_3_6 Link_3_11 )
+  )
