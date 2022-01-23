@@ -1,6 +1,8 @@
 from src.data_model.Node import Node
 from src.data_model.Link import Link
 from src.data_model.Demand import Demand
+from src.data_model.Path import Path
+from src.data_model.DemandPaths import DemandPaths
 
 
 def load_nodes(folder):
@@ -35,5 +37,17 @@ def load_demands(folder):
 
 
 def load_paths(folder):
-    with open(folder + 'nodes.txt', 'r') as file:
+    with open(folder + 'paths.txt', 'r') as file:
         lines = [line.rstrip("\n") for line in file]
+        demand_paths = []
+        for line in lines:
+            if "Demand" in line:
+                current_demand = DemandPaths(line[2:-2])
+                demand_paths.append(current_demand)
+            if "P" in line:
+                path_id = line[4:7]
+                links = line[10:-2]
+                links = links.split(" ")
+                demand_id = current_demand.demand_id
+                current_demand.add_path(Path(path_id, demand_id, links))
+    return demand_paths

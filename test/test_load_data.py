@@ -1,4 +1,4 @@
-from src.load_data import load_nodes, load_links, load_demands
+from src.load_data import load_nodes, load_links, load_demands, load_paths
 
 
 def test_load_nodes():
@@ -32,3 +32,23 @@ def test_load_demands():
     assert demands_us[1000].demand_id == "D1000"
     assert demands_us[1000].source == "Philadelphia"
     assert demands_us[1000].target == "Chicago"
+    demands_pl = load_demands("../data/polska/")
+    assert len(demands_pl) == 66
+    assert demands_pl[10].demand_id == "Demand_0_11"
+    assert demands_pl[10].source == "Gdansk"
+    assert demands_pl[10].target == "Wroclaw"
+
+
+def test_load_paths():
+    # no predefined paths for us
+    demand_paths_pl = load_paths("../data/polska/")
+    assert len(demand_paths_pl) == 66
+    assert demand_paths_pl[4].demand_id == "Demand_0_5"
+    assert demand_paths_pl[4].paths[5].path_id == "P_5"
+    assert len(demand_paths_pl[4].paths[5].links) == 8
+    assert demand_paths_pl[4].paths[5].links[5] == "Link_3_4"
+
+
+
+
+    #katowice wrocław łódź

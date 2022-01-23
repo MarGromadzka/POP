@@ -1,4 +1,4 @@
-from src.load_data import load_nodes
+from src.load_data import load_nodes, load_paths
 
 if __name__ == "__main__":
     # # nodes, links, demands = load_data("janos_us_ca/")
@@ -6,4 +6,4 @@ if __name__ == "__main__":
     # print(nodes)
     # print(links)
     # print(demands)
-    load_nodes("data/polska/")
+    print(load_paths("data/polska/"))
