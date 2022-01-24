@@ -7,7 +7,8 @@ def test_demand_element():
     work_set = "../data/polska_small/"
     demands = load_demands(work_set)
     demand_paths = load_paths(work_set)
-    individual = Individual(demands, demand_paths)
+    individual = Individual()
+    individual.generate_simple(demands, demand_paths)
     demand_element = individual.demand_elements[0]
     transponders_count = demand_element.count_transponders()
     assert transponders_count["100G"] == 2

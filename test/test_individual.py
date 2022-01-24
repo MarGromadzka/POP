@@ -8,7 +8,8 @@ def test_creation():
     work_set = "../data/polska_small/"
     demands = load_demands(work_set)
     demand_paths = load_paths(work_set)
-    individual = Individual(demands, demand_paths)
+    individual = Individual()
+    individual.generate_simple(demands, demand_paths)
     assert len(individual.demand_elements) == 3
     assert individual.demand_elements[0].bitrate_threshold == 110
     # założenie, że są same transpondery 100 G

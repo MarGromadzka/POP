@@ -4,8 +4,15 @@ from src.evolution_model.demand_element import DemandElement
 
 
 class Individual:
-    def __init__(self, demands, demand_paths):
+    def __init__(self):
         self.demand_elements = []
+
+    def generate_random(self, demands, demand_paths):
+        for demand in demands:
+            paths = list(filter(lambda x: x.demand_id == demand.demand_id, demand_paths))
+            self.demand_elements.append(DemandElement(demand, paths[0].paths))
+
+    def generate_simple(self, demands, demand_paths):
         for demand in demands:
             paths = list(filter(lambda x: x.demand_id == demand.demand_id, demand_paths))
             self.demand_elements.append(DemandElement(demand, paths[0].paths))
@@ -27,3 +34,11 @@ class Individual:
                         link_dict[link] = 1
         return link_dict
 
+    def get_demand_elements(self):
+        return self.demand_elements
+
+    def get_demand_element_from_index(self, index):
+        return self.demand_elements[index]
+
+    def add_demand_gen(self, demand_gen):
+        self.demand_elements.append(demand_gen)
