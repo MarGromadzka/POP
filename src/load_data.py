@@ -1,8 +1,8 @@
-from src.data_model.Node import Node
-from src.data_model.Link import Link
-from src.data_model.Demand import Demand
-from src.data_model.Path import Path
-from src.data_model.DemandPaths import DemandPaths
+from src.data_model.node import Node
+from src.data_model.link import Link
+from src.data_model.demand import Demand
+from src.data_model.path import Path
+from src.data_model.demand_paths import DemandPaths
 
 
 def load_nodes(folder):
