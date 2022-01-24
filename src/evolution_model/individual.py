@@ -12,10 +12,13 @@ class Individual:
             paths = list(filter(lambda x: x.demand_id == demand.demand_id, demand_paths))
             self.demand_elements.append(DemandElement(demand, paths[0].paths))
 
-    def generate_simple(self, demands, demand_paths):
+    def generate_deterministic(self, demands, demand_paths, transponder):
+        # for test purposes
         for demand in demands:
             paths = list(filter(lambda x: x.demand_id == demand.demand_id, demand_paths))
-            self.demand_elements.append(DemandElement(demand, paths[0].paths))
+            demand_element = DemandElement(demand, paths[0].paths)
+            demand_element.generate_deterministic_transponders(transponder)
+            self.demand_elements.append(demand_element)
 
     def calculate_cost(self):
         cost = 0

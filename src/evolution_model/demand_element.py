@@ -8,13 +8,20 @@ class DemandElement:
         self.bitrate_threshold = float(demand.demand_value)
         self.paths = paths
         self.path_elements = []
-        self.init_transponders()
+        self.generate_transponders()
 
-    def init_transponders(self):
+    def generate_deterministic_transponders(self, transponder):
         # method for test purposes, cannot be used
         self.path_elements = []
         while self.calculate_provided_bitrate() < self.bitrate_threshold:
-            self.path_elements.append(PathElement(self.paths[0], Transponder100G()))
+            self.path_elements.append(PathElement(self.paths[0], transponder))
+
+    def generate_transponders(self):
+        # method for test purposes, cannot be used
+        self.path_elements = []
+        transponders_set = [Transponder100G(), Transponder200G(), Transponder400G()]
+        while self.calculate_provided_bitrate() < self.bitrate_threshold:
+            self.path_elements.append(PathElement(random.choice(self.paths), random.choice(transponders_set)))
 
     def calculate_provided_bitrate(self):
         bitrate = 0
