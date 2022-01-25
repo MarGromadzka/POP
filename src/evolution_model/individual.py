@@ -43,5 +43,5 @@ class Individual:
     def get_demand_element_from_index(self, index):
         return self.demand_elements[index]
 
-    def add_demand_gen(self, demand_gen):
+    def add_demand_element(self, demand_gen):
         self.demand_elements.append(demand_gen)

@@ -5,12 +5,13 @@ from src.evolution_model.demand_element import DemandElement
 from src.load_data import load_demands, load_paths
 from src.evolution_model.transponders import Transponder100G, Transponder200G, Transponder400G
 
+
 @pytest.fixture()
 def determined_demand_paths():
     work_set = "../data/polska_small/"
-    demands = load_demands(work_set)
     demand_paths = load_paths(work_set)
     return demand_paths[0].paths
+
 
 @pytest.fixture()
 def determined_demand():
@@ -18,10 +19,12 @@ def determined_demand():
     demands = load_demands(work_set)
     return demands[0]
 
+
 @pytest.fixture()
 def determined_demand_element(determined_demand, determined_demand_paths):
     demand_element = DemandElement(determined_demand, determined_demand_paths)
     return demand_element
+
 
 @pytest.fixture
 def determined_demand_element():

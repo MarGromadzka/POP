@@ -35,6 +35,15 @@ class DemandElement:
             cost += path_element.transponder.cost
         return cost
 
+    def count_transponders(self):
+        transponders_dict = {}
+        for path_element in self.path_elements:
+            if path_element.transponder.transponder_type in transponders_dict.keys():
+                transponders_dict[path_element.transponder.transponder_type] += 1
+            else:
+                transponders_dict[path_element.transponder.transponder_type] = 1
+        return transponders_dict
+
     # def mutate(self, prob):
     #     if random.uniform(0, 1) > prob:
     #         self.merge_transponders("100G")
@@ -70,12 +79,3 @@ class DemandElement:
         # ACHTUNG - wymyślić tu jakąś inną logikę
         # jeśli są dwa transpondery o takim samym G to merguj
         # rozbij transponder na mniejsze
-
-    def count_transponders(self):
-        transponders_dict = {}
-        for path_element in self.path_elements:
-            if path_element.transponder.transponder_type in transponders_dict.keys():
-                transponders_dict[path_element.transponder.transponder_type] += 1
-            else:
-                transponders_dict[path_element.transponder.transponder_type] = 1
-        return transponders_dict
