@@ -1,3 +1,6 @@
 .idea/
 venv/
 .pytest_cache/
+src/__pycache__
+src/data_model/__pycache__/
+src/evolution_model/__pycache__/

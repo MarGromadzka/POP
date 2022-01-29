@@ -1,5 +1,5 @@
-import random
-from src.evolution_model.transponders import Transponder100G
+from copy import deepcopy
+
 from src.evolution_model.demand_element import DemandElement
 
 
@@ -45,3 +45,9 @@ class Individual:
 
     def add_demand_element(self, demand_gen):
         self.demand_elements.append(demand_gen)
+
+    def mutate(self, probability):
+        mutant = deepcopy(self)
+        for el in mutant.get_demand_elements():
+            el.mutate(probability)
+        return mutant
