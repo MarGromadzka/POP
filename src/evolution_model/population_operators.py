@@ -26,6 +26,14 @@ def crossover_population(population, size):
     return offspring
 
 
+def mutate_population(population, probability):
+    mutants = []
+    for individual in population:
+        mutants.append(individual.mutate(probability))
+    return mutants
+
+
+
 def succession(population, size):
     population.sort(key=lambda x: x.calculate_cost())
     return population[:size]
