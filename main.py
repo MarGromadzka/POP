@@ -16,3 +16,4 @@ if __name__ == "__main__":
     for _ in range(generations):
         population = succession(population + crossover_population(population, crossover_size), succession_size)
         print([individual.calculate_cost() for individual in population])
+    print(min([max(individual.calculate_link_coverage().values()) for individual in population]))
