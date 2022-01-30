@@ -12,7 +12,7 @@ def initiate_population(demands, demand_paths, size):
     return population
 
 
-def crossover_population(population, size):
+def crossover_population(population, size, prob):
     if size % 2 == 1:
         raise Exception("The number should be even")
     else:
@@ -20,7 +20,7 @@ def crossover_population(population, size):
     offspring = []
     for _ in range(size):
         [parent_one, parent_two] = random.sample(population, 2)
-        offspring_one, offspring_two = crossover(parent_one, parent_two, 0.5)
+        offspring_one, offspring_two = crossover(parent_one, parent_two, prob)
         offspring.append(offspring_one)
         offspring.append(offspring_two)
     return offspring
