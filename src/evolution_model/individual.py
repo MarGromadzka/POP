@@ -24,7 +24,7 @@ class Individual:
         cost = 0
         for demand_element in self.demand_elements:
             cost += demand_element.calculate_cost()
-        return cost
+        return cost + self.calculate_overloaded_links(32) * 10
 
     def calculate_link_coverage(self):
         link_dict = {}
@@ -36,6 +36,14 @@ class Individual:
                     else:
                         link_dict[link] = 1
         return link_dict
+
+    def calculate_overloaded_links(self, threshold):
+        calc_dict = self.calculate_link_coverage()
+        numerator = 0
+        for value in calc_dict.values():
+            if value > threshold:
+                numerator += 1
+        return numerator
 
     def get_demand_elements(self):
         return self.demand_elements
