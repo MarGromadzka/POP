@@ -16,7 +16,7 @@ def test_crossover_population():
     demands = load_demands(work_set)
     demand_paths = load_paths(work_set)
     population = initiate_population(demands, demand_paths, 10)
-    offspring = crossover_population(population, 10)
+    offspring = crossover_population(population, 10, 0.5)
     assert len(population + offspring) == 20
 
 
@@ -26,5 +26,5 @@ def test_crossover_with_uneven_size():
     demand_paths = load_paths(work_set)
     population = initiate_population(demands, demand_paths, 10)
     with pytest.raises(Exception) as e:
-        offspring = crossover_population(population, 9)
+        offspring = crossover_population(population, 9, 0.5)
     assert str(e.value) == "The number should be even"
